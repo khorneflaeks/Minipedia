@@ -32,9 +32,11 @@ def writefile(binarys, filename):
 def wikifind(webname):
     x = requests.get('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=1&explaintext=1&titles=' + webname)
     wikitext = x.json()
-    #need to decode json from API call
+    for k,item in wikitext["query"]["pages"].items():
+        return item['extract']
     
 
+print(wikifind("Among_Us"))
 strings = input("Enter a string: ")
 writefile(bitify(strings), "test.bin")
            
