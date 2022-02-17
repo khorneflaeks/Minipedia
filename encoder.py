@@ -1,4 +1,7 @@
 from bitstring import BitArray
+import json
+import requests
+
 
 def bitify(inputs):
     binry = ""
@@ -25,6 +28,12 @@ def writefile(binarys, filename):
     b = BitArray(bin=binarys)
     b.tofile(binary_file)
     binary_file.close()
+    
+def wikifind(webname):
+    x = requests.get('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=1&explaintext=1&titles=' + webname)
+    wikitext = x.json()
+    #need to decode json from API call
+    
 
 strings = input("Enter a string: ")
 writefile(bitify(strings), "test.bin")
