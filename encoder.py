@@ -19,8 +19,7 @@ def bitify(inputs):
             case ")":
                 binry = binry + "11110"                
             case _:
-                binry = binry + "{0:b}".format(ord(x) - 96).zfill(5)
-    print(binry)        
+                binry = binry + "{0:b}".format(ord(x) - 96).zfill(5)       
     return binry 
 
 def writefile(binarys, filename):
@@ -36,9 +35,8 @@ def wikifind(webname):
         return item['extract']
     
 
-print(wikifind("Among_Us"))
 strings = input("Enter a string: ")
-writefile(bitify(strings), "test.bin")
+writefile(bitify(wikifind(strings)), "test.bin")
            
 
 
