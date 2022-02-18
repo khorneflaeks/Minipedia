@@ -6,6 +6,8 @@ import unidecode
 
 charlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',','(',')']
 
+symboldict = {'@' : 'at','!' : '.','&' : 'and','=' : 'equals','+' : 'plus', '-' : 'minus'}
+
 #Turns 8bit binary into 5bit
 def bitify(inputs):
     binry = ""
@@ -52,8 +54,10 @@ def capitals(text1):
     return re.sub(r"(\w)([A-Z])", r"\1#\2", text1).lower()
 
 #Takes a string with accented text in it and turns the accented characters into ascii text using unidecode
-def accenttochar(text2);
+def normalizer(text2):
     return unidecode.unidecode(text2)
+
+def symboltoplaintext(text4):
 
 strings = input("Enter a string: ")
 writefile(bitify(remover(capitals(wikifind(strings)))), "test.bin")
