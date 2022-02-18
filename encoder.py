@@ -1,7 +1,10 @@
 from bitstring import BitArray
 import json
 import requests
+import re
+
 charlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',','(',')']
+
 
 def bitify(inputs):
     binry = ""
@@ -17,7 +20,9 @@ def bitify(inputs):
             case "(":
                 binry = binry + "11101"    
             case ")":
-                binry = binry + "11110"                
+                binry = binry + "11110"  
+            case "#":
+                binry = binry + "11111"                 
             case _:
                 binry = binry + "{0:b}".format(ord(x) - 96).zfill(5)       
     return binry 
@@ -38,6 +43,10 @@ def remover(text):
     text = ''.join([i for i in text if i in charlist])
     return text
     
+def capitals(text1):   
+    return re.sub(r"(\w)([A-Z])", r"\1#\2", text1).lower()
+ 
+print(capitals("TestString")) 
 print(remover("c*at% 1one t2wo thr3e3e"))
 strings = input("Enter a string: ")
 writefile(bitify(wikifind(strings)), "test.bin")
