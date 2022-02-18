@@ -46,8 +46,6 @@ def remover(text):
 def capitals(text1):   
     return re.sub(r"(\w)([A-Z])", r"\1#\2", text1).lower()
  
-print(capitals("TestString")) 
-print(remover("c*at% 1one t2wo thr3e3e"))
 strings = input("Enter a string: ")
 writefile(bitify(remover(capitals(wikifind(strings)))), "test.bin")
            
