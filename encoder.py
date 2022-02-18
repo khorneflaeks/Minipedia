@@ -54,14 +54,17 @@ def capitals(text1):
     return re.sub(r"(\w)([A-Z])", r"\1#\2", text1).lower()
 
 #Takes a string with accented text in it and turns the accented characters into ascii text using unidecode
-def accenttochar(text2);
+def accenttochar(text2):
     return unidecode.unidecode(text2)
 
 def symboltoplaintext(text3):
-    length=
+    output=""
+    for i in text3:
+        if i == symboldict:
+            output += symboldict.get(i)
+        else:
+            output += i
+    return output
 
 strings = input("Enter a string: ")
 writefile(bitify(remover(accenttochar(capitals(wikifind(strings))))), "test.bin")
-           
-
-
