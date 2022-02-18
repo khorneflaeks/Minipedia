@@ -49,7 +49,7 @@ def capitals(text1):
 print(capitals("TestString")) 
 print(remover("c*at% 1one t2wo thr3e3e"))
 strings = input("Enter a string: ")
-writefile(bitify(wikifind(strings)), "test.bin")
+writefile(bitify(remover(capitals(wikifind(strings)))), "test.bin")
            
 
 
