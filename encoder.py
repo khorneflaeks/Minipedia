@@ -3,11 +3,13 @@ import json
 import requests
 import re
 import unidecode
+from num2words import num2words
 
 charlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',','(',')']
 
-symboldict = {'@' : 'at','!' : '.','&' : 'and','=' : 'equals','+' : 'plus', '-' : 'minus'}
-
+symboldict = {'@' : 'at','!' : '.','&' : 'and','=' : 'equals','+' : 'plus', '-' : 'minus', '0' : 'zero', '1' : 'one', '2' : 'two', '3' : 'three', '4' : 'four', '5' : 'five', '6' : 'six', '7' : 'seven', '8' : 'eight', '9' : 'nine'}
+words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
+    
 #Turns 8bit binary into 5bit
 def bitify(inputs):
     binry = ""
@@ -58,13 +60,9 @@ def accenttochar(text2):
     return unidecode.unidecode(text2)
 
 def symboltoplaintext(text3):
-    output=""
-    for i in text3:
-        if i == symboldict:
-            output += symboldict.get(i)
-        else:
-            output += i
-    return output
+    for word, initial in symboldict.items():
+        text3 = text3.replace(word.lower(), initial)
+    return text3
 
 strings = input("Enter a string: ")
-writefile(bitify(remover(accenttochar(capitals(wikifind(strings))))), "test.bin")
+writefile(bitify(remover(symboltoplaintext(accenttochar(capitals(wikifind(strings)))))), "test.bin")
