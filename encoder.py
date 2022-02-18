@@ -35,10 +35,10 @@ def wikifind(webname):
         return item['extract']
         
 def remover(text):
-
-    ''.join([i for i in text if i in aminoacids])
+    text = ''.join([i for i in text if i in charlist])
+    return text
     
-
+print(remover("c*at% 1one t2wo thr3e3e"))
 strings = input("Enter a string: ")
 writefile(bitify(wikifind(strings)), "test.bin")
            
