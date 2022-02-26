@@ -67,6 +67,5 @@ def addtitle(title):
     text = bitify(remover(accenttochar(title.lower())) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(title))))) + "##")
     return text
 
-print(capitals("This is A test StRiNg"))
 strings = input("Enter a string: ")
 writefile(addtitle(strings), "test.bin")
