@@ -4,7 +4,7 @@ import requests
 import re
 import unidecode
 
-charlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',','(',')']
+charlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',','(',')'," "]
 
 symboldict = {'@' : 'at','!' : '.','&' : 'and','=' : 'equals','+' : 'plus', '-' : 'minus', '0' : 'zero', '1' : 'one', '2' : 'two', '3' : 'three', '4' : 'four', '5' : 'five', '6' : 'six', '7' : 'seven', '8' : 'eight', '9' : 'nine'}
 words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
@@ -52,7 +52,7 @@ def remover(text):
 
 #Turns all characters into lowercase
 def capitals(text1):   
-    return re.sub(r"(\w)([A-Z])", r"\1#\2", text1).lower()
+    return re.sub(r"([A-Z])", r"#\1", text1).lower()
 
 #Takes a string with accented text in it and turns the accented characters into ascii text using unidecode
 def accenttochar(text2):
@@ -62,6 +62,11 @@ def symboltoplaintext(text3):
     for word, initial in symboldict.items():
         text3 = text3.replace(word.lower(), initial)
     return text3
+    
+def addtitle(title):
+    text = bitify(remover(accenttochar(title.lower())) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(title))))) + "##")
+    return text
 
+print(capitals("This is A test StRiNg"))
 strings = input("Enter a string: ")
-writefile(bitify(remover(symboltoplaintext(accenttochar(capitals(wikifind(strings)))))), "test.bin")
+writefile(addtitle(strings), "test.bin")
