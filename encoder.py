@@ -64,7 +64,7 @@ def symboltoplaintext(text3):
     return text3
     
 def addtitle(title):
-    text = bitify(remover(accenttochar(title.lower())) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(title))))) + "##")
+    text = bitify(remover(symboltoplaintext(accenttochar(title.lower()))) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(title))))) + "##")
     return text
 
 strings = input("Enter a string: ")
