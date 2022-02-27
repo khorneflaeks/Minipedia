@@ -73,13 +73,3 @@ def symboltoplaintext(text3):
     for word, initial in symboldict.items():
         text3 = text3.replace(word.lower(), initial)
     return text3
-<<<<<<< HEAD
-=======
-    
-def addtitle(title):
-    text = bitify(remover(symboltoplaintext(accenttochar(title.lower()))) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(title))))) + "##")
-    return text
-
-strings = input("Enter a string: ")
-writefile(addtitle(strings), "test.bin")
->>>>>>> 8385195fe9155f5719aa428c600d59a4125b1883
