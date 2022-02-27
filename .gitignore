@@ -1,2 +1,4 @@
-test.bin
+*.bin
+*.5bf
 venv
+__pycache__

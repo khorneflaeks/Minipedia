@@ -35,7 +35,7 @@ def bitify(inputs):
 
 #Writes input to file with filename
 def writefile(binarys, filename):
-    binary_file = open(filename, 'wb')
+    binary_file = open(filename+".5bf", 'wb')
     b = BitArray(bin=binarys)
     b.tofile(binary_file)
     binary_file.close()
@@ -54,6 +54,8 @@ def wikigraball(forward, gaplimit):
     for k,item in wikitext["query"]["pages"].items():
         pages[0].append(item['title'])
         pages[1].append(item['extract'])
+    wikitext["continue"].items():
+        pages[2].append(item['continue']
     return pages
 
 #Removes all letters not part of the 5 bits

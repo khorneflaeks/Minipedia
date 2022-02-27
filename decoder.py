@@ -2,8 +2,8 @@ from bitstring import BitArray
 iscapital = False
 istitle = True
 
-def bitify(inputs):
-    file = open("test.bin", "rb") #filename
+def bitify(filename):
+    file = open(filename+".5bf", "rb")
     byte = file.read(1) #add while byte:
     fullnum = ""
     fullstr = ""
