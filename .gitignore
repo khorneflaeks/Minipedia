@@ -1,4 +1,4 @@
 *.bin
 *.5bf
 venv
-__pycache__
+__pycache__/

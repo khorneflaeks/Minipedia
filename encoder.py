@@ -6,7 +6,7 @@ import unidecode
 
 charlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',','(',')'," "]
 
-pages=[[],[]]
+pages=[[],[],[]]
 
 symboldict = {'@' : 'at','!' : '.','&' : 'and','=' : 'equals','+' : 'plus', '-' : 'minus', '0' : 'zero', '1' : 'one', '2' : 'two', '3' : 'three', '4' : 'four', '5' : 'five', '6' : 'six', '7' : 'seven', '8' : 'eight', '9' : 'nine'}
 words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
@@ -54,8 +54,7 @@ def wikigraball(forward, gaplimit):
     for k,item in wikitext["query"]["pages"].items():
         pages[0].append(item['title'])
         pages[1].append(item['extract'])
-    wikitext["continue"].items():
-        pages[2].append(item['continue']
+        pages[2].append(wikitext['continue']['continue'])
     return pages
 
 #Removes all letters not part of the 5 bits
