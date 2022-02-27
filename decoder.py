@@ -51,9 +51,3 @@ def bitcheck(fivebit):
                 iscapital = False
                 return chr(fivebit+64)
     return binry 
-
-strings = input("Enter a string: ")
-print(bitify(strings))
-           
-
-

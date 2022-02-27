@@ -62,6 +62,3 @@ def symboltoplaintext(text3):
     for word, initial in symboldict.items():
         text3 = text3.replace(word.lower(), initial)
     return text3
-
-strings = input("Enter a string: ")
-writefile(bitify(remover(symboltoplaintext(accenttochar(capitals(wikifind(strings)))))), "test.bin")
