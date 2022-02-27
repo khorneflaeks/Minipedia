@@ -6,6 +6,8 @@ import unidecode
 
 charlist = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','.',',','(',')'," "]
 
+pages=[[],[]]
+
 symboldict = {'@' : 'at','!' : '.','&' : 'and','=' : 'equals','+' : 'plus', '-' : 'minus', '0' : 'zero', '1' : 'one', '2' : 'two', '3' : 'three', '4' : 'four', '5' : 'five', '6' : 'six', '7' : 'seven', '8' : 'eight', '9' : 'nine'}
 words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
     
@@ -44,7 +46,16 @@ def wikifind(webname):
     wikitext = x.json()
     for k,item in wikitext["query"]["pages"].items():
         return item['extract']
-        
+
+#Grab all pages starting from forward. gaplimit must be a given as a string.
+def wikigraball(forward, gaplimit):
+    x = requests.get('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&generator=allpages&exintro=1&explaintext=1&&gapcontinue='+forward+'&gapfilterredir=nonredirects&gaplimit='+gaplimit)
+    wikitext = x.json()
+    for k,item in wikitext["query"]["pages"].items():
+        pages[0].append(item['title'])
+        pages[1].append(item['extract'])
+    return pages
+
 #Removes all letters not part of the 5 bits
 def remover(text):
     text = ''.join([i for i in text if i in charlist])
