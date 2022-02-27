@@ -35,7 +35,7 @@ def bitify(inputs):
 
 #Writes input to file with filename
 def writefile(binarys, filename):
-    binary_file = open(filename+".5bf", 'wb')
+    binary_file = open(filename+".5bf", 'ab')
     b = BitArray(bin=binarys)
     b.tofile(binary_file)
     binary_file.close()

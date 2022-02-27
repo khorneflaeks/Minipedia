@@ -4,6 +4,7 @@ import decoder
 pages=[]
 cont=""
 gaplimit="80"
+title="wiki"
 
 pages=encoder.wikigraball(cont,gaplimit)
 for i in range(len(pages[0])):
