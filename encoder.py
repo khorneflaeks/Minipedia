@@ -40,6 +40,12 @@ def writefile(binarys, filename):
     b.tofile(binary_file)
     binary_file.close()
     
+def overwritefile(binarys, filename):
+    binary_file = open(filename+".5bf", 'wb')
+    b = BitArray(bin=binarys)
+    b.tofile(binary_file)
+    binary_file.close()
+
 #Downloads webpage off wikipedia, set link for now
 def wikifind(webname):
     x = requests.get('https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=1&explaintext=1&titles=' + webname)
@@ -56,6 +62,14 @@ def wikigraball(forward, gaplimit):
         pages[1].append(item['extract'])
         pages[2].append(wikitext['continue']['continue'])
     return pages
+
+def addtitle(title):
+    text = bitify(remover(symboltoplaintext(accenttochar(title.lower()))) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(title))))) + "##")
+    return text
+
+def addmultititle(title,inputtext):
+    text = bitify(remover(symboltoplaintext(accenttochar(title.lower()))) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(inputtext))))) + "##")
+    return text
 
 #Removes all letters not part of the 5 bits
 def remover(text):
