@@ -68,7 +68,7 @@ def addtitle(title):
     return text
 
 def addmultititle(title,inputtext):
-    text = bitify(remover(symboltoplaintext(accenttochar(title.lower()))) + "#" + remover(symboltoplaintext(accenttochar(capitals(wikifind(inputtext))))) + "##")
+    text = bitify(remover(symboltoplaintext(accenttochar(title.lower()))) + "#" + remover(symboltoplaintext(accenttochar(capitals(inputtext)))) + "##")
     return text
 
 #Removes all letters not part of the 5 bits
