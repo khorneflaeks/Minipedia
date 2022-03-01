@@ -158,5 +158,7 @@ def decode():
     print(debitify(filename))
 
 parser=argparse.ArgumentParser()
-parser.add_argument("encode","Scrape and encode wikipedia pages")
+parser.add_argument("--encode",help="Scrape and encode wikipedia pages")
+parser.add_argument("--decode",help="Decode inputted file name")
 args = parser.parse_args()
+print(" _________________________\n< Mooooooooooooooooooooooo >\n -------------------------\n        \   ^__^\n         \  (oo)\_______\n            (__)\       )\/\\\n                ||----w |\n                ||     ||\n")
