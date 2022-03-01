@@ -158,7 +158,14 @@ def decode():
     print(debitify(filename))
 
 parser=argparse.ArgumentParser()
-parser.add_argument("--encode",help="Scrape and encode wikipedia pages")
-parser.add_argument("--decode",help="Decode inputted file name")
+group = parser.add_mutually_exclusive_group()
+group.add_argument("--encode",help="Scrape and encode wikipedia pages")
+group.add_argument("--decode",help="Decode inputted file name")
+parser.add_argument("--gaplimit",help="Max number of pages to scrape")
+parser.add_argument("--cont",help="Where to continue scraping from")
 args = parser.parse_args()
+if args.encode:
+    forward=args.cont
+    forward=encoder(forward)
+    print("This is the cont variable: "+forward)
 print(" _________________________\n< Mooooooooooooooooooooooo >\n -------------------------\n        \   ^__^\n         \  (oo)\_______\n            (__)\       )\/\\\n                ||----w |\n                ||     ||\n")
